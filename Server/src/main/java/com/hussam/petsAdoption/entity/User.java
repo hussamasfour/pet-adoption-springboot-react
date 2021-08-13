@@ -27,4 +27,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name="role_id"))
     private Set<Role> listRole;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
+    private Pet pet;
 }
