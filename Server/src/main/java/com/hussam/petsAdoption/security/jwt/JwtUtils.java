@@ -1,11 +1,9 @@
 package com.hussam.petsAdoption.security.jwt;
 
-
 import com.hussam.petsAdoption.security.userService.UserDetailsImp;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 
 import java.util.Date;
 

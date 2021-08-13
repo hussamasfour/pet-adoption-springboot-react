@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+
 import java.util.Set;
 
 @Entity
@@ -18,6 +19,7 @@ public class User {
     private String email;
 
     private String password;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
