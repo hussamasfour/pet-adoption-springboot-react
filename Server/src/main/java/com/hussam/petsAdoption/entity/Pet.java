@@ -31,7 +31,7 @@ public class Pet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="location_id")
-    @JsonIgnore
+
     private Location location;
 
     @ManyToOne(fetch = FetchType.LAZY)

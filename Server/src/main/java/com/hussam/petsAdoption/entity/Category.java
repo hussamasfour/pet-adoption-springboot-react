@@ -21,5 +21,5 @@ public class Category {
 
     @OneToMany
 
-    private List<Pet> pets = new ArrayList<>();
+    private List<Pet> pets ;
 }

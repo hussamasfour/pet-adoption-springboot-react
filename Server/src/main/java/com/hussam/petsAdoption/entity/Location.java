@@ -17,5 +17,6 @@ public class Location {
     private String city;
     private String state;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "location")
+    @JsonIgnore
     private List<Pet> pets;
 }

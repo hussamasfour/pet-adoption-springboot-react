@@ -12,4 +12,6 @@ public interface PetService {
     void addPet(NewPetRequest newPetRequest);
 
     List<Pet> getPetsByLocationAndCategory(String city, String state, String animal);
+
+    List<Pet> getPetsByCategory(String animal);
 }

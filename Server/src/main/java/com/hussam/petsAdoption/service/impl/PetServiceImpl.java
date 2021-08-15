@@ -77,4 +77,15 @@ public class PetServiceImpl implements PetService {
         }
         return petRepository.findPetsByLocationAndCategory(location, category);
     }
+
+    @Override
+    public List<Pet> getPetsByCategory(String animal) {
+        Category category = categoryRepository.findByName(animal);
+
+        if(category == null){
+            throw new NotFoundException("Please choose a correct category");
+        }
+
+        return petRepository.findPetsByCategory(category);
+    }
 }

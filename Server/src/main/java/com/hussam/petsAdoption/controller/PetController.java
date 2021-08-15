@@ -17,16 +17,21 @@ public class PetController {
     @Autowired
     private PetService petService;
 
-
     @PostMapping("/pets")
     public ResponseEntity<?> addPet(@RequestBody NewPetRequest newPetRequest){
         petService.addPet(newPetRequest);
         return new ResponseEntity<>("New Pets is been added", HttpStatus.CREATED);
     }
 
-    @GetMapping("/pets")
+    @GetMapping("/pets/search")
     public ResponseEntity<?> getPetsByLocation(@RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("animal") String animal){
         List<Pet> pets = petService.getPetsByLocationAndCategory(city,state, animal);
+        return new ResponseEntity<>(pets, HttpStatus.OK);
+    }
+
+    @GetMapping("/pets")
+    public ResponseEntity<?> getPetsByCategory(@RequestParam("animal") String animal){
+        List<Pet> pets = petService.getPetsByCategory(animal);
 
         return new ResponseEntity<>(pets, HttpStatus.OK);
     }

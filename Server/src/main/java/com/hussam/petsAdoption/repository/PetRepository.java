@@ -12,4 +12,5 @@ import java.util.List;
 public interface PetRepository extends JpaRepository<Pet, Long> {
 
     public List<Pet> findPetsByLocationAndCategory(Location location, Category category);
-}
+    public List<Pet> findPetsByCategory(Category category);
+ }
