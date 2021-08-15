@@ -32,6 +32,15 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         ExceptionResponse exceptionResponse=  new ExceptionResponse(new Date(), "Validation Failed", details,webRequest.getDescription(false) );
         return new ResponseEntity(exceptionResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    public final ResponseEntity<ExceptionResponse> handleNotFoundExceptions(
+            NotFoundException ex,  WebRequest webRequest) {
+        List<String> details = new ArrayList<>();
+        details.add( ex.getLocalizedMessage());
+        ExceptionResponse exceptionResponse=  new ExceptionResponse(new Date(), "Validation Failed", details,webRequest.getDescription(false) );
+        return new ResponseEntity(exceptionResponse, new HttpHeaders(), HttpStatus.NOT_FOUND);
+    }
     @ExceptionHandler(TokenRefreshException.class)
     public final ResponseEntity<ExceptionResponse> handleTokenRefreshExceptions(
             TokenRefreshException ex,  WebRequest webRequest) {

@@ -1,10 +1,10 @@
 package com.hussam.petsAdoption.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
@@ -28,17 +28,20 @@ public class Pet {
     @Enumerated(EnumType.STRING)
     @Column(length = 10)
     private Gender gender;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="location_id")
+    @JsonIgnore
     private Location location;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id")
-    private Category Category;
+    @JoinColumn(name = "category_id")
+    @JsonIgnore
+    private Category category;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
 }
