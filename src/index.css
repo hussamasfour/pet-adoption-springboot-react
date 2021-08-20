@@ -8,6 +8,7 @@ body {
   background-image: url("./assets/dog.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-size: 14px;
   letter-spacing: 0.2rem;
 }

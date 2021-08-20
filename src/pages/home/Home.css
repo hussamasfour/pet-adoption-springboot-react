@@ -4,10 +4,7 @@ header {
   min-height: auto;
   text-align: center;
   color: #fff;
-
   background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
 }
 .header-content {
@@ -37,16 +34,17 @@ header {
 }
 
 .explore-btn {
+  display: inline;
   border-radius: 300px;
   text-transform: uppercase;
   color: white;
   background-color: yellowgreen;
   border-color: yellowgreen;
-  font-weight: 600;
+  font-weight: 400;
   padding: 15px 30px;
 }
 .explore-btn:hover {
-  background-color: white !important;
+  background-color: white;
   color: yellowgreen;
 }
 
@@ -91,8 +89,6 @@ header {
     position: absolute;
     top: 50%;
     padding: 0 50px;
-    -webkit-transform: translateY(50%);
-    -ms-transform: translateY(50%);
     transform: translateY(60%);
   }
 
@@ -111,5 +107,14 @@ header {
     margin-left: auto;
     max-width: 50%;
     font-size: 12px;
+  }
+  .explore-btn {
+    border-radius: 300px;
+    text-transform: uppercase;
+    color: white;
+    background-color: yellowgreen;
+    border-color: yellowgreen;
+    font-weight: 600;
+    padding: 15px 30px;
   }
 }
