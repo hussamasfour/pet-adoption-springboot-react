@@ -1,16 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link, Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { fetchUser } from "../../redux/actions";
 import InputField from "../inputField/InputField";
 const Login = ({ handleSubmit }) => {
   const error = useSelector((state) => state.user.errorMessage);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const history = useHistory();
   const dispatch = useDispatch();
   const onSubmit = (formValues) => {
     dispatch(fetchUser(formValues, history));
   };
+  if (isLoggedIn) {
+    return <Redirect to="/" />;
+  }
   return (
     <div className="row d-flex justify-content-center align-item-center h-100 text-white">
       <div className="col-12 col-sm-12 col-md-12 col-xl-8 col-lg-6 shadow-lg m-5 py-5 bg-transparent ">
