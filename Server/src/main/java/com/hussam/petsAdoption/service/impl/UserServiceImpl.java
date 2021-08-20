@@ -8,7 +8,7 @@ import com.hussam.petsAdoption.entity.Role;
 import com.hussam.petsAdoption.entity.RoleType;
 import com.hussam.petsAdoption.entity.User;
 import com.hussam.petsAdoption.exception.InvalidArgumentException;
-import com.hussam.petsAdoption.exception.UserAlreadyExistException;
+import com.hussam.petsAdoption.exception.ResourceAlreadyExistException;
 import com.hussam.petsAdoption.repository.RoleRepository;
 import com.hussam.petsAdoption.repository.UserRepository;
 import com.hussam.petsAdoption.security.jwt.JwtUtils;
@@ -53,11 +53,11 @@ public class UserServiceImpl implements UserService {
     public User signUp(SignUpRequest signUpRequest)  {
         // checking if email is already exists
         if(userRepository.existsByEmail(signUpRequest.getEmail())){
-            throw new UserAlreadyExistException("Failed!! email is already in use!!");
+            throw new ResourceAlreadyExistException("Failed!! email is already in use!!");
         }
 
         if(userRepository.existsByUsername(signUpRequest.getUsername())){
-            throw new UserAlreadyExistException("Failed!! Username is already in use!!");
+            throw new ResourceAlreadyExistException("Failed!! Username is already in use!!");
         }
 
         Set<Role> roles = new HashSet<>();
@@ -89,27 +89,21 @@ public class UserServiceImpl implements UserService {
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
-
             UserDetailsImp userDetails = (UserDetailsImp) authentication.getPrincipal();
 
             String jwt = jwtUtils.generateJwtToken(userDetails);
-
-//        RefreshToken refreshToken = refreshTokenUtil.createRefreshToken(userDetails.getId());
 
             List<String> roles = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
                     .collect(Collectors.toList());
             RefreshToken refreshToken= refreshTokenService.createRefreshToken(userDetails.getId());
 
             LoginResponse loginResponse = new LoginResponse();
-
             loginResponse.setEmail(userDetails.getEmail());
             loginResponse.setUsername(userDetails.getUsername());
             loginResponse.setAccessToken(jwt);
             loginResponse.setId(userDetails.getId());
             loginResponse.setRefreshToken(refreshToken.getToken());
             loginResponse.setRoles(roles);
-
-
 
             return loginResponse;
 
