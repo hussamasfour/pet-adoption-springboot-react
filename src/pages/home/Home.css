@@ -1,0 +1,115 @@
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  text-align: center;
+  color: #fff;
+
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.header-content {
+  position: absolute;
+  top: 100%;
+  padding: 0 50px;
+  width: 100%;
+}
+
+.header-content-inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+.header-content-inner h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 100px;
+  font-weight: 300;
+}
+
+.header-content-inner p {
+  margin-bottom: 50px;
+  max-width: 80%;
+  font-size: 14px;
+}
+
+.explore-btn {
+  border-radius: 300px;
+  text-transform: uppercase;
+  color: white;
+  background-color: yellowgreen;
+  border-color: yellowgreen;
+  font-weight: 600;
+  padding: 15px 30px;
+}
+.explore-btn:hover {
+  background-color: white !important;
+  color: yellowgreen;
+}
+
+@media (min-width: 1000px) {
+  header {
+    min-height: 100%;
+  }
+
+  header .header-content {
+    position: absolute;
+    top: 50%;
+    padding: 0 50px;
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    transform: translateY(60%);
+  }
+
+  header .header-content .header-content-inner {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+  }
+
+  header .header-content .header-content-inner h1 {
+    font-size: 100px;
+  }
+
+  header .header-content .header-content-inner p {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 80%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 999px) {
+  header {
+    min-height: 100%;
+  }
+
+  header .header-content {
+    position: absolute;
+    top: 50%;
+    padding: 0 50px;
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    transform: translateY(60%);
+  }
+
+  header .header-content .header-content-inner {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+  }
+
+  header .header-content .header-content-inner h1 {
+    font-size: 60px;
+  }
+
+  header .header-content .header-content-inner p {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 50%;
+    font-size: 12px;
+  }
+}
