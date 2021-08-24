@@ -1,0 +1,78 @@
+.pet-box {
+  padding: 0;
+  border: 1px solid #e7eaec;
+}
+.pet-box:hover,
+.pet-box.active {
+  border: 1px solid transparent;
+  box-shadow: 0 3px 7px 0 #e9e2e2;
+}
+.pet-image {
+  text-align: center;
+  padding: 90px 0;
+  background-color: #f8f8f9;
+  color: #bebec3;
+  font-weight: 600;
+}
+
+.pet-desc {
+  padding: 20px;
+  position: relative;
+}
+
+.pet-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #676a6c;
+  display: block;
+  margin: 2px 0 5px 0;
+}
+.pet-name:hover,
+.pet-name:focus {
+  color: #1ab394;
+}
+.pet-availabilty {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1ab394;
+  padding: 6px 12px;
+  position: absolute;
+  top: -33px;
+  right: 0;
+}
+.ibox-content {
+  padding: 30px 30px 50px 30px;
+}
+
+.small {
+  font-size: 10px;
+}
+.pet-images {
+  margin: 0 20px;
+}
+
+.ibox {
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+}
+.ibox.collapsed .ibox-content {
+  display: none;
+}
+
+.ibox:after,
+.ibox:before {
+  display: table;
+}
+
+.ibox-content {
+  background-color: #ffffff;
+  color: inherit;
+  padding: 10px;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 1px 0;
+}
