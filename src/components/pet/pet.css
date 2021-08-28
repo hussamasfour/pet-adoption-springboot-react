@@ -1,78 +1,31 @@
-.pet-box {
-  padding: 0;
-  border: 1px solid #e7eaec;
+.card {
+  background: #222;
+  border: 1px solid yellowgreen;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
 }
-.pet-box:hover,
-.pet-box.active {
+.card:hover,
+.card:active {
   border: 1px solid transparent;
   box-shadow: 0 3px 7px 0 #e9e2e2;
-}
-.pet-image {
-  text-align: center;
-  padding: 90px 0;
-  background-color: #f8f8f9;
-  color: #bebec3;
-  font-weight: 600;
+  cursor: pointer;
 }
 
-.pet-desc {
-  padding: 20px;
-  position: relative;
+.btn {
+  border: 3px solid;
+  border-image-slice: 1;
+  color: #fff;
+  border-image-source: linear-gradient(315deg, #f8ef42 0%, #0fd64f 74%);
+  text-decoration: none;
+  transition: all 0.4s ease;
+  text-decoration: none;
 }
 
-.pet-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: #676a6c;
-  display: block;
-  margin: 2px 0 5px 0;
-}
-.pet-name:hover,
-.pet-name:focus {
-  color: #1ab394;
-}
-.pet-availabilty {
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #1ab394;
-  padding: 6px 12px;
-  position: absolute;
-  top: -33px;
-  right: 0;
-}
-.ibox-content {
-  padding: 30px 30px 50px 30px;
-}
-
-.small {
-  font-size: 10px;
-}
-.pet-images {
-  margin: 0 20px;
-}
-
-.ibox {
-  clear: both;
-  margin-bottom: 25px;
-  margin-top: 0;
-  padding: 0;
-}
-.ibox.collapsed .ibox-content {
-  display: none;
-}
-
-.ibox:after,
-.ibox:before {
-  display: table;
-}
-
-.ibox-content {
-  background-color: #ffffff;
-  color: inherit;
-  padding: 10px;
-  border-color: #e7eaec;
-  border-image: none;
-  border-style: solid solid none;
-  border-width: 1px 0;
+.btn:hover,
+.btn:focus {
+  background-image: linear-gradient(315deg, #f8ef42 0%, #0fd64f 74%);
+  -webkit-text-fill-color: #fff !important;
+  border: 5px solid #fff !important;
+  box-shadow: #222 1px 0 10px;
+  text-decoration: underline;
 }

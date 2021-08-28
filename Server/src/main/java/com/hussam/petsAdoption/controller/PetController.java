@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class PetController {
 
     @Autowired
@@ -33,6 +34,12 @@ public class PetController {
     public ResponseEntity<?> getPetsByCategory(@RequestParam("animal") String animal){
         List<Pet> pets = petService.getPetsByCategory(animal);
 
+        return new ResponseEntity<>(pets, HttpStatus.OK);
+    }
+
+    @GetMapping("/allpets")
+    public ResponseEntity<?> getAllPets(){
+        List<Pet> pets = petService.getAllPets();
         return new ResponseEntity<>(pets, HttpStatus.OK);
     }
 }

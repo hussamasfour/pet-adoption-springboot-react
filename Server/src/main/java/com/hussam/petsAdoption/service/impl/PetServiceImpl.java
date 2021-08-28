@@ -29,7 +29,7 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public List<Pet> getAllPets() {
-        return null;
+        return petRepository.findAll();
     }
 
     @Override

@@ -1,14 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Pet from "../pet/Pet";
 
 const PetList = () => {
-  // const petList  = useSelector(state => state.pet.petList);
-  // if(!petList){
-  //     return <div>Please use Search bar to get Started </div>
-  // }
+  const petsList = useSelector((state) => state.pets.allPets);
+  if (!petsList) {
+    return <div>Please use Search bar to get Started </div>;
+  }
   return (
-    <div>
-      <Pet />
+    <div className="row">
+      {petsList.map((pet) => {
+        return <Pet key={pet.id} pet={pet} />;
+      })}
     </div>
   );
 };

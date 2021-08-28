@@ -36,7 +36,6 @@ public class Pet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @JsonIgnore
     private Category category;
 
     @OneToOne(fetch = FetchType.LAZY)
