@@ -4,8 +4,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Data
 @Getter
 @Setter
@@ -14,7 +12,8 @@ public class NewPetRequest {
     private String name;
     private String color;
     private String category;
-    private Date dateOfBirth;
+    private String age;
+    private String description;
     private String city;
     private String state;
     private int weight;

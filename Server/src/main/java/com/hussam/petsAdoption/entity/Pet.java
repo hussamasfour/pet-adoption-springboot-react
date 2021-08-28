@@ -19,9 +19,9 @@ public class Pet {
 
     private String color;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "dob")
-    private Date dateOfBirth;
+    private String age;
+
+    private String description;
 
     private int weight;
 
