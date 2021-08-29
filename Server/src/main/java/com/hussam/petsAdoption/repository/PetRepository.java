@@ -13,4 +13,6 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 
     public List<Pet> findPetsByLocationAndCategory(Location location, Category category);
     public List<Pet> findPetsByCategory(Category category);
+
+    public List<Pet> findPetsByCategoryAndAgeAndLocation(Category category, String age, Location location);
  }

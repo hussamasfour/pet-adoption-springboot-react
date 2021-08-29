@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Pet from "../pet/Pet";
+import SearchBar from "../search-bar/SearchBar";
 
 const PetList = () => {
   const petsList = useSelector((state) => state.pets.allPets);
@@ -9,9 +10,14 @@ const PetList = () => {
   }
   return (
     <div className="row">
-      {petsList.map((pet) => {
-        return <Pet key={pet.id} pet={pet} />;
-      })}
+      <SearchBar />
+
+      <div className="row">
+        <h2 className="text-white mb-4">Featured Pets:</h2>
+        {petsList.map((pet) => {
+          return <Pet key={pet.id} pet={pet} />;
+        })}
+      </div>
     </div>
   );
 };

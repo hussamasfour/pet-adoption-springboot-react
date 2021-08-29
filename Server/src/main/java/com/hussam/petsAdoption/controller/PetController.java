@@ -42,4 +42,10 @@ public class PetController {
         List<Pet> pets = petService.getAllPets();
         return new ResponseEntity<>(pets, HttpStatus.OK);
     }
+
+    @GetMapping("/searchpet")
+    public ResponseEntity<?> searchPets(@RequestParam("animal" )String animal, @RequestParam("city")String city, @RequestParam("age") String age){
+        List<Pet> pets = petService.searchPets(animal, city, age);
+        return new ResponseEntity<>(pets, HttpStatus.OK);
+    }
 }

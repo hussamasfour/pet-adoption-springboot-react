@@ -14,4 +14,6 @@ public interface PetService {
     List<Pet> getPetsByLocationAndCategory(String city, String state, String animal);
 
     List<Pet> getPetsByCategory(String animal);
+
+    List<Pet> searchPets(String animal, String city, String age);
 }

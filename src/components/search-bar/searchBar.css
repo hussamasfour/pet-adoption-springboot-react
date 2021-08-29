@@ -1,0 +1,11 @@
+.lab {
+  background: linear-gradient(315deg, #f8ef42 0%, #0fd64f 74%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.search-box {
+  background: #222;
+}

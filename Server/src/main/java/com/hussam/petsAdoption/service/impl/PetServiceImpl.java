@@ -50,7 +50,7 @@ public class PetServiceImpl implements PetService {
         pet.setName(newPetRequest.getName());
         pet.setColor(newPetRequest.getColor());
         pet.setWeight(newPetRequest.getWeight());
-        pet.setDateOfBirth(newPetRequest.getDateOfBirth());
+        pet.setAge(newPetRequest.getAge());
         if("male".equalsIgnoreCase(newPetRequest.getGender())){
             pet.setGender(Gender.MALE);
         }else{
@@ -87,5 +87,13 @@ public class PetServiceImpl implements PetService {
         }
 
         return petRepository.findPetsByCategory(category);
+    }
+
+    @Override
+    public List<Pet> searchPets(String animal, String city, String age) {
+        Category category = categoryRepository.findByName(animal);
+        Location location = locationRepository.findByCity(city);
+
+        return petRepository.findPetsByCategoryAndAgeAndLocation(category,age, location);
     }
 }
