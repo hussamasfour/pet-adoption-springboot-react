@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import Navigation from "../nav/Navigation";
+import Navigation from "./nav/Navigation";
 import Explore from "../pages/explore/Explore";
 import Home from "../pages/home/Home";
 import { fetchAllPets } from "../redux/actions";

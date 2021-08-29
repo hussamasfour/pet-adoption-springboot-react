@@ -77,6 +77,14 @@ const SearchBar = ({ handleSubmit }) => {
   );
 };
 
+const validate = (formValues) => {
+  const errors = {};
+  if (!formValues.city) {
+    errors.city = "required";
+  }
+};
+
 export default reduxForm({
   form: "searchForm",
+  validate,
 })(SearchBar);
