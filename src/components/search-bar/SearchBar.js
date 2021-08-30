@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { searchPets } from "../../redux/actions/petActions";
+import CustomButton from "../custom-button/custom-button";
 import "./searchBar.css";
 const SearchBar = ({ handleSubmit }) => {
   const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const SearchBar = ({ handleSubmit }) => {
                   name="animal"
                   className="form-select p-3"
                 >
+                  <option value="">Select</option>
+
                   <option value="cat">Cat</option>
                   <option value="dog">Dog</option>
                 </Field>
@@ -40,11 +43,13 @@ const SearchBar = ({ handleSubmit }) => {
                   name="city"
                   className="form-select p-3"
                 >
+                  <option value="">Select</option>
                   <option value="manhattan">Manhattan</option>
                   <option value="brooklyn">Brooklyn</option>
                   <option value="staten island">Staten Island</option>
                 </Field>
               </div>
+
               <div className="col-xl-5  col-lg-6">
                 <label htmlFor="age" className="text-white mb-1 lab">
                   Age:
@@ -65,9 +70,7 @@ const SearchBar = ({ handleSubmit }) => {
             </div>
             <div className="row justify-content-center">
               <div className="col-xl-12 col-lg-6 text-center my-3">
-                <button type="submit" className="btn btn-lg pet-btn">
-                  Search
-                </button>
+                <CustomButton type="submit">Search</CustomButton>
               </div>
             </div>
           </form>

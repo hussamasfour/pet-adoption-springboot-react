@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CustomButton from "../custom-button/custom-button";
 import "./pet.css";
 
 const Pet = ({ pet }) => {
@@ -19,11 +20,9 @@ const Pet = ({ pet }) => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <div className="row align-items-center">
+          <div className="row align-items-center justify-content-between">
             <div className="col-xl-7 col-lg-8">
-              <Link to={`/pet-details/${pet.id}`} className="btn pet-btn">
-                Details
-              </Link>
+              <CustomButton className="p-4">Details</CustomButton>
             </div>
             <div className="col-xl-5 col-lg-3 align-items-center">
               {pet.location.city}
