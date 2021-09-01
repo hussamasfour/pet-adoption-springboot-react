@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PetServiceImpl implements PetService {
@@ -95,5 +96,14 @@ public class PetServiceImpl implements PetService {
         Location location = locationRepository.findByCity(city);
 
         return petRepository.findPetsByCategoryAndAgeAndLocation(category,age, location);
+    }
+
+    @Override
+    public Pet getPetById(Long id) {
+        Optional<Pet> pet =petRepository.findById(id);
+        if(!pet.isPresent()){
+            throw new NotFoundException("Sorry pet with id "+ id+ " is not found");
+        }
+        return pet.get();
     }
 }

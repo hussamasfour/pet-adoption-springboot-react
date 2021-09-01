@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CustomButton from "../custom-button/custom-button";
 import "./pet.css";
 
 const Pet = ({ pet }) => {
+  const history = useHistory();
   console.log(pet);
   return (
     <div className="col-md-4 col-sm-6 col-lg-4 col-xl-3">
@@ -22,7 +23,14 @@ const Pet = ({ pet }) => {
           </p>
           <div className="row align-items-center justify-content-between">
             <div className="col-xl-6 col-lg-8">
-              <CustomButton className="p-4">Details</CustomButton>
+              <CustomButton
+                className="p-4"
+                onClick={() => {
+                  history.push(`/pet/${pet.id}/details`);
+                }}
+              >
+                Details
+              </CustomButton>
             </div>
             <div className="col-xl-6 col-lg-3 align-items-center">
               {pet.location.city},{pet.location.state}

@@ -3,6 +3,7 @@ import {
   FETCH_PETS_BY_CATEGORY_SUCCESS,
   FETCH_PETS_FAILURE,
   FETCH_PETS_START,
+  FETCH_PET_BY_ID,
   SEARCH_PETS,
 } from "../actions/type";
 
@@ -11,6 +12,7 @@ const INIIIAL_STATE = {
   petsList: null,
   allPets: null,
   searchedPet: null,
+  selectedPet: null,
   error: null,
 };
 const petReducer = (state = INIIIAL_STATE, action) => {
@@ -48,6 +50,13 @@ const petReducer = (state = INIIIAL_STATE, action) => {
         isloading: false,
         error: null,
         searchedPet: action.payload,
+      };
+    case FETCH_PET_BY_ID:
+      return {
+        ...state,
+        isloading: false,
+        error: null,
+        selectedPet: action.payload,
       };
     default:
       return state;

@@ -1,12 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Pet from "../pet/Pet";
 
 const SearchResult = () => {
   const searchedPets = useSelector((state) => state.pets.searchedPet);
-  const history = useHistory();
   if (!searchedPets) {
     return <Redirect to="/explore" />;
   }

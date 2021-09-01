@@ -35,8 +35,8 @@ const SearchBar = ({ handleSubmit }) => {
                 </Field>
               </div>
             </div>
-            <div className="row mb-4 justify-content-center">
-              <div className="col-xl-5 col-lg-6">
+            <div className="row mb-4 justify-content-center ">
+              <div className="col-xl-5 col-lg-6 mb-md-3">
                 <label htmlFor="city" className="text-white mb-1 lab">
                   City:
                 </label>
