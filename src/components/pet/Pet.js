@@ -6,7 +6,7 @@ import "./pet.css";
 const Pet = ({ pet }) => {
   console.log(pet);
   return (
-    <div className="col-md-4 col-sm-12 col-lg-4 col-xl-3">
+    <div className="col-md-4 col-sm-6 col-lg-4 col-xl-3">
       <div className="card">
         <img
           src="https://i.imgur.com/ZTkt4I5.jpg"
@@ -21,11 +21,11 @@ const Pet = ({ pet }) => {
             bulk of the card's content.
           </p>
           <div className="row align-items-center justify-content-between">
-            <div className="col-xl-7 col-lg-8">
+            <div className="col-xl-6 col-lg-8">
               <CustomButton className="p-4">Details</CustomButton>
             </div>
-            <div className="col-xl-5 col-lg-3 align-items-center">
-              {pet.location.city}
+            <div className="col-xl-6 col-lg-3 align-items-center">
+              {pet.location.city},{pet.location.state}
             </div>
           </div>
         </div>

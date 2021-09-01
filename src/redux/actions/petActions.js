@@ -33,7 +33,7 @@ export const fetchAllPets = () => async (dispatch) => {
   }
 };
 
-export const searchPets = (formValues) => async (dispatch) => {
+export const searchPets = (formValues, history) => async (dispatch) => {
   try {
     dispatch({ type: FETCH_PETS_START });
     const response = await adoptionApi.get("/searchpet", {
@@ -44,6 +44,7 @@ export const searchPets = (formValues) => async (dispatch) => {
       },
     });
     dispatch({ type: SEARCH_PETS, payload: response.data });
+    history.push("/search");
   } catch (error) {
     dispatch({ type: FETCH_PETS_FAILURE, payload: error.response.data });
   }

@@ -1,13 +1,16 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { searchPets } from "../../redux/actions/petActions";
 import CustomButton from "../custom-button/custom-button";
 import "./searchBar.css";
 const SearchBar = ({ handleSubmit }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const onSubmit = (formvalues) => {
-    dispatch(searchPets(formvalues));
+    dispatch(searchPets(formvalues, history));
   };
   return (
     <div className="row justify-content-center my-5 ">
