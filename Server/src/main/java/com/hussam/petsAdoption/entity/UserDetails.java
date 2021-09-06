@@ -21,6 +21,7 @@ public class UserDetails {
     private String state;
     private String zipcode;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "userDetails")
+    @JsonIgnore
     private User user;
 
 }

@@ -4,6 +4,7 @@ import {
   ADD_USER_DETAILS_FAILURE,
   ADD_USER_DETAILS_START,
   ADD_USER_DETAILS_SUCCESS,
+  REFRESH_TOKEN,
   SIGN_IN_FAILURE,
   SIGN_IN_START,
   SIGN_IN_SUCCESS,
@@ -30,7 +31,12 @@ export const fetchUser = (formValues, history) => async (dispatch) => {
     });
   }
 };
-
+export const refreshToken = (accessToken) => (dispatch) => {
+  dispatch({
+    type: REFRESH_TOKEN,
+    payload: accessToken,
+  });
+};
 export const addUserDetails = (userDetails, history) => (dispatch) => {
   try {
     dispatch({ type: ADD_USER_DETAILS_START });
