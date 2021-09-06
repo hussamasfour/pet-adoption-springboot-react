@@ -9,6 +9,7 @@ import { fetchAllPets } from "../redux/actions";
 import Login from "./login/Login";
 import SearchResult from "./searchResult/SearchResult";
 import PetDetails from "./pet-details/PetDetails";
+import Reservation from "../pages/reservation/Reservation";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function App() {
         <Route path="/explore" exact component={Explore} />
         <Route path="/search" exact component={SearchResult} />
         <Route path="/pet/:id/details" exact component={PetDetails} />
+        <Route path="/reserve" exact component={Reservation} />
       </Switch>
     </div>
   );

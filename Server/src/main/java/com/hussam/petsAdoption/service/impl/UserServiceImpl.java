@@ -3,13 +3,12 @@ package com.hussam.petsAdoption.service.impl;
 import com.hussam.petsAdoption.dto.request.LoginRequest;
 import com.hussam.petsAdoption.dto.request.SignUpRequest;
 import com.hussam.petsAdoption.dto.response.LoginResponse;
-import com.hussam.petsAdoption.entity.RefreshToken;
-import com.hussam.petsAdoption.entity.Role;
-import com.hussam.petsAdoption.entity.RoleType;
-import com.hussam.petsAdoption.entity.User;
+import com.hussam.petsAdoption.entity.*;
 import com.hussam.petsAdoption.exception.InvalidArgumentException;
+import com.hussam.petsAdoption.exception.NotFoundException;
 import com.hussam.petsAdoption.exception.ResourceAlreadyExistException;
 import com.hussam.petsAdoption.repository.RoleRepository;
+import com.hussam.petsAdoption.repository.UserDetailsRepository;
 import com.hussam.petsAdoption.repository.UserRepository;
 import com.hussam.petsAdoption.security.jwt.JwtUtils;
 import com.hussam.petsAdoption.security.userService.UserDetailsImp;
@@ -36,6 +35,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private UserDetailsRepository userDetailsRepository;
 
     @Autowired
     private RefreshTokenService refreshTokenService;
@@ -115,5 +117,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User addUserDetails(UserDetails userDetails, UserDetailsImp currentUser) {
+        User loggedInUser = userRepository.findByUsername(currentUser.getUsername());
+
+        loggedInUser.setUserDetails(userDetails);
+        userDetails.setUser(loggedInUser);
+        userRepository.save(loggedInUser);
+        return loggedInUser;
     }
 }

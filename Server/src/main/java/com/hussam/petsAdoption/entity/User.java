@@ -29,4 +29,8 @@ public class User {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
     private Pet pet;
+
+    @OneToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+    @JoinColumn(name="user_details_id")
+    private UserDetails userDetails;
 }

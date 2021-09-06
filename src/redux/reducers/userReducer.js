@@ -1,4 +1,7 @@
 import {
+  ADD_USER_DETAILS_FAILURE,
+  ADD_USER_DETAILS_START,
+  ADD_USER_DETAILS_SUCCESS,
   LOGOUT,
   REFRESH_TOKEN,
   SIGN_IN_FAILURE,
@@ -64,6 +67,27 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         user: { ...user, accessToken: action.payload },
       };
+    case ADD_USER_DETAILS_START: {
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null,
+      };
+    }
+    case ADD_USER_DETAILS_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload,
+      };
+    }
+    case ADD_USER_DETAILS_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: null,
+      };
+    }
     case LOGOUT:
       return { ...state, isLoggedIn: false, user: null };
     default:

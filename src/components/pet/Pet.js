@@ -24,7 +24,7 @@ const Pet = ({ pet }) => {
           <div className="row align-items-center justify-content-between">
             <div className="col-xl-6 col-lg-8">
               <CustomButton
-                className="p-4"
+                className="btn pet-btn px-3"
                 onClick={() => {
                   history.push(`/pet/${pet.id}/details`);
                 }}

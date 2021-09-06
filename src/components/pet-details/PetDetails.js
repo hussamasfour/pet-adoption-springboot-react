@@ -19,7 +19,7 @@ const PetDetails = () => {
   }
   return (
     <div className="container">
-      <div className="row my-5 text-white bg-dark">
+      <div className="row my-5 text-white bg-dark border-md">
         <div className="col-md-6 mb-4 mb-md-0 px-sm-0 ">
           <img
             src="https://i.imgur.com/ZTkt4I5.jpg"
@@ -86,14 +86,17 @@ const PetDetails = () => {
             </tbody>
           </table>
           <hr />
-          <div className="row flex-row justify-content-around">
-            <div className="col-xl-6">
-              <Link to="/" className="btn pet-btn btn-md  mb-2 w-50">
+          <div className="d-flex  justify-content-around mb-3 align-item-center">
+            <div className="">
+              <Link to="/reserve" className="btn pet-btn btn-md px-5  mb-2">
                 Adopt
               </Link>
             </div>
-            <div className="col-xl-6">
-              <Link to="/" className="btn btn-light btn-lg mr-1 mb-2 w-50">
+            <div className="">
+              <Link
+                to="/search"
+                className="btn btn-light btn-lg mr-1 px-5 mb-2"
+              >
                 Back
               </Link>
             </div>
