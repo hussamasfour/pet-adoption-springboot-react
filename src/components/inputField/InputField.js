@@ -19,7 +19,7 @@ const InputField = ({
         {...customProps}
       />
       {touched && error && submitFailed && (
-        <span className="bg-danger">{error}</span>
+        <span className="bg-danger text-white">{error}</span>
       )}
     </div>
   );

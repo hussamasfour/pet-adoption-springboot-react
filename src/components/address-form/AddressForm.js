@@ -11,9 +11,9 @@ const AddressForm = ({ handleSubmit }) => {
   const history = useHistory();
 
   const onSubmit = (address) => {
-    console.log(address);
     dispatch(addUserDetails(address, history));
   };
+
   return (
     <div className="row d-flex justify-content-center">
       <div className="col-md-9">
@@ -68,7 +68,7 @@ const AddressForm = ({ handleSubmit }) => {
               component={InputField}
               type="text"
               label="Zip Code"
-              name="zipCode"
+              name="zipcode"
               className="form-control form-control-lg"
             />
             <div className="d-flex justify-content-between align-item-center text-white">
@@ -91,7 +91,24 @@ const AddressForm = ({ handleSubmit }) => {
     </div>
   );
 };
+const validate = (formvalues) => {
+  const errors = {};
+  if (!formvalues.address) {
+    errors.address = "Required";
+  }
 
+  if (!formvalues.city) {
+    errors.city = "Required";
+  }
+  if (!formvalues.state) {
+    errors.state = "Required";
+  }
+  if (!formvalues.zipcode) {
+    errors.zipcode = "Required";
+  }
+  return errors;
+};
 export default reduxForm({
   form: "reservationForm",
+  validate,
 })(AddressForm);
