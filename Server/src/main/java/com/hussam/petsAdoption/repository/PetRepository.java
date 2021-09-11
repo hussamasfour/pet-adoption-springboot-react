@@ -4,6 +4,7 @@ import com.hussam.petsAdoption.entity.Category;
 import com.hussam.petsAdoption.entity.Location;
 import com.hussam.petsAdoption.entity.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 
     public List<Pet> findPetsByLocationAndCategory(Location location, Category category);
     public List<Pet> findPetsByCategory(Category category);
+
+    public List<Pet> findPetsByIsReservedFalse();
 
     public List<Pet> findPetsByCategoryAndAgeAndLocation(Category category, String age, Location location);
  }

@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -25,13 +24,14 @@ public class Pet {
 
     private int weight;
 
+    private boolean isReserved;
+
     @Enumerated(EnumType.STRING)
     @Column(length = 10)
     private Gender gender;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="location_id")
-
     private Location location;
 
     @ManyToOne(fetch = FetchType.LAZY)

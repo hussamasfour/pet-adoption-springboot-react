@@ -27,7 +27,7 @@ public class ReservationServiceImpl implements ReservationService {
         User user = userRepository.findByUsername(currentUser.getUsername());
 
         Pet selectedPet = petRepository.getById(id);
-
+        selectedPet.setReserved(true);
         Reservation reservation= new Reservation();
         reservation.setUser(user);
         reservation.setPet(selectedPet);

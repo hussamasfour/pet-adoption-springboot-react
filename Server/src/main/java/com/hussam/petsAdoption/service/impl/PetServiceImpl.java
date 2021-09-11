@@ -30,7 +30,7 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public List<Pet> getAllPets() {
-        return petRepository.findAll();
+        return petRepository.findPetsByIsReservedFalse();
     }
 
     @Override
