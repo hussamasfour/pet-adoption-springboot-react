@@ -27,6 +27,9 @@ const removeUser = () => {
   localStorage.removeItem("user");
 };
 
+const setPets = (pets) => {
+  localStorage.setItem("pets", JSON.stringify(pets));
+};
 const TokenService = {
   getLocalRefreshToken,
   getLocalAccessToken,
@@ -34,6 +37,7 @@ const TokenService = {
   getUser,
   setUser,
   removeUser,
+  setPets,
 };
 
 export default TokenService;

@@ -4,6 +4,7 @@ import {
   ADD_USER_DETAILS_FAILURE,
   ADD_USER_DETAILS_START,
   ADD_USER_DETAILS_SUCCESS,
+  LOGOUT,
   REFRESH_TOKEN,
   SIGN_IN_FAILURE,
   SIGN_IN_START,
@@ -45,4 +46,9 @@ export const addUserDetails = (userDetails, history) => (dispatch) => {
   } catch (error) {
     dispatch({ type: ADD_USER_DETAILS_FAILURE, error });
   }
+};
+
+export const logout = () => (dispatch) => {
+  TokenService.removeUser();
+  dispatch({ type: LOGOUT });
 };

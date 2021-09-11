@@ -1,4 +1,5 @@
 import adoptionApi from "../../api/adoptionApi";
+import TokenService from "../../utils/tokenService";
 import {
   FETCH_ALL_PETS_SUCCESS,
   FETCH_PETS_BY_CATEGORY_SUCCESS,
@@ -31,6 +32,7 @@ export const fetchAllPets = () => async (dispatch) => {
 
     const response = await adoptionApi.get("/pet/all");
     dispatch({ type: FETCH_ALL_PETS_SUCCESS, payload: response.data });
+    TokenService.setPets(response.data);
   } catch (error) {
     dispatch({ type: FETCH_PETS_FAILURE, payload: error.response.data });
   }

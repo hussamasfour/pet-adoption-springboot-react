@@ -9,14 +9,25 @@ import {
   SEARCH_PETS,
 } from "../actions/type";
 
-const INIIIAL_STATE = {
-  isloading: false,
-  petsList: null,
-  allPets: null,
-  searchedPet: null,
-  selectedPet: null,
-  error: null,
-};
+const allPets = JSON.parse(localStorage.getItem("pets"));
+
+const INIIIAL_STATE = allPets
+  ? {
+      isloading: false,
+      petsList: null,
+      allPets,
+      searchedPet: null,
+      selectedPet: null,
+      error: null,
+    }
+  : {
+      isloading: false,
+      petsList: null,
+      allPets: null,
+      searchedPet: null,
+      selectedPet: null,
+      error: null,
+    };
 const petReducer = (state = INIIIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_PETS_START:

@@ -3,6 +3,8 @@ package com.hussam.petsAdoption.service.impl;
 import com.hussam.petsAdoption.entity.Pet;
 import com.hussam.petsAdoption.entity.Reservation;
 import com.hussam.petsAdoption.entity.User;
+import com.hussam.petsAdoption.exception.InvalidArgumentException;
+import com.hussam.petsAdoption.exception.NotFoundException;
 import com.hussam.petsAdoption.repository.PetRepository;
 import com.hussam.petsAdoption.repository.ReservationRepository;
 import com.hussam.petsAdoption.repository.UserRepository;
@@ -27,7 +29,12 @@ public class ReservationServiceImpl implements ReservationService {
         User user = userRepository.findByUsername(currentUser.getUsername());
 
         Pet selectedPet = petRepository.getById(id);
+        if(selectedPet.isReserved()){
+            throw new InvalidArgumentException("Selected pet is already reserved");
+        }
         selectedPet.setReserved(true);
+        selectedPet.setUser(user);
+        user.setPet(selectedPet);
         Reservation reservation= new Reservation();
         reservation.setUser(user);
         reservation.setPet(selectedPet);

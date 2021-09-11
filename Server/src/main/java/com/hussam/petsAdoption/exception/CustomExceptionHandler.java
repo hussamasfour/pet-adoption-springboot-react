@@ -32,6 +32,14 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         ExceptionResponse exceptionResponse=  new ExceptionResponse(new Date(), "CONFLICT", details,webRequest.getDescription(false) );
         return new ResponseEntity(exceptionResponse, new HttpHeaders(), HttpStatus.CONFLICT);
     }
+    @ExceptionHandler(InvalidArgumentException.class)
+    public final ResponseEntity<ExceptionResponse> handleResourceAlreadyExistException(
+            InvalidArgumentException ex, WebRequest webRequest) {
+        List<String> details = new ArrayList<>();
+        details.add( ex.getLocalizedMessage());
+        ExceptionResponse exceptionResponse=  new ExceptionResponse(new Date(), "Bad Request", details,webRequest.getDescription(false) );
+        return new ResponseEntity(exceptionResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(NotFoundException.class)
     public final ResponseEntity<ExceptionResponse> handleNotFoundExceptions(
