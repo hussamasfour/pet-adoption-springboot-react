@@ -7,7 +7,7 @@ const InputField = ({
   ...customProps
 }) => {
   return (
-    <div className="form-outline form-white mb-5">
+    <div className="form-outline form-white mb-3">
       <label className="form-label text-uppercase" htmlFor={label}>
         {label}
       </label>

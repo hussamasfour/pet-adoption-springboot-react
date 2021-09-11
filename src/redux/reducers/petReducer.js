@@ -4,6 +4,8 @@ import {
   FETCH_PETS_FAILURE,
   FETCH_PETS_START,
   FETCH_PET_BY_ID,
+  RESERVE_PET_FAILURE,
+  RESERVE_PET_SUCCESS,
   SEARCH_PETS,
 } from "../actions/type";
 
@@ -57,6 +59,17 @@ const petReducer = (state = INIIIAL_STATE, action) => {
         isloading: false,
         error: null,
         selectedPet: action.payload,
+      };
+    case RESERVE_PET_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        allPets: state.allPets.filter((pets) => pets.id !== action.payload),
+      };
+    case RESERVE_PET_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

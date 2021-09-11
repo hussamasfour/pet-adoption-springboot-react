@@ -5,6 +5,8 @@ import {
   FETCH_PETS_FAILURE,
   FETCH_PETS_START,
   FETCH_PET_BY_ID,
+  RESERVE_PET_FAILURE,
+  RESERVE_PET_SUCCESS,
   SEARCH_PETS,
 } from "./type";
 
@@ -58,5 +60,19 @@ export const fetchPetById = (id) => async (dispatch) => {
     dispatch({ type: FETCH_PET_BY_ID, payload: response.data });
   } catch (error) {
     dispatch({ type: FETCH_PETS_FAILURE, payload: error.response.data });
+  }
+};
+
+export const reservePet = (petId, history) => async (dispatch) => {
+  try {
+    const response = await adoptionApi.post("/adopt/" + petId);
+
+    if (response.status === 201) {
+      dispatch({ type: RESERVE_PET_SUCCESS, payload: petId });
+
+      history.push("/");
+    }
+  } catch (error) {
+    dispatch({ type: RESERVE_PET_FAILURE, error });
   }
 };

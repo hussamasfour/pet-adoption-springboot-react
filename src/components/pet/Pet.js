@@ -5,7 +5,6 @@ import "./pet.css";
 
 const Pet = ({ pet }) => {
   const history = useHistory();
-  console.log(pet);
   return (
     <div className="col-md-4 col-sm-6 col-lg-4 col-xl-3">
       <div className="card">

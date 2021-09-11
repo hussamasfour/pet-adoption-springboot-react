@@ -42,7 +42,6 @@ export const addUserDetails = (userDetails, history) => (dispatch) => {
     dispatch({ type: ADD_USER_DETAILS_START });
     adoptionApi.post("/userdetails", userDetails);
     dispatch({ type: ADD_USER_DETAILS_SUCCESS });
-    history.push("/confirmation");
   } catch (error) {
     dispatch({ type: ADD_USER_DETAILS_FAILURE, error });
   }
