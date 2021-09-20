@@ -128,4 +128,9 @@ public class UserServiceImpl implements UserService {
         userRepository.save(loggedInUser);
         return loggedInUser;
     }
+
+    @Override
+    public User getUserProfile(UserDetailsImp currentUser) {
+        return userRepository.findByUsername(currentUser.getUsername());
+    }
 }

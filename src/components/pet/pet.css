@@ -1,12 +1,12 @@
 .card {
   background: #222;
-  border: 1px solid yellowgreen;
+  border: 1px solid #e9e2e2;
   color: rgba(250, 250, 250, 0.8);
   margin-bottom: 2rem;
 }
 .card:hover,
 .card:active {
   border: 1px solid transparent;
-  box-shadow: 0 3px 7px 0 #e9e2e2;
+  box-shadow: 0 3px 7px 0 yellowgreen;
   cursor: pointer;
 }

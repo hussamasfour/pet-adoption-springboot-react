@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link, Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { fetchUser } from "../../redux/actions";
+import CustomButton from "../custom-button/custom-button";
 import InputField from "../inputField/InputField";
 const Login = ({ handleSubmit }) => {
   const error = useSelector((state) => state.user.errorMessage);
@@ -17,8 +18,8 @@ const Login = ({ handleSubmit }) => {
   }
   return (
     <div className="container">
-      <div className="row d-flex justify-content-center align-item-center h-100 text-white">
-        <div className="col-12 col-sm-12 col-md-12 col-xl-8 col-lg-6 shadow-lg m-5 py-5 bg-transparent border">
+      <div className="d-flex justify-content-center align-item-center h-100 text-white">
+        <div className="col-12 col-sm-12 col-md-8 col-xl-6 col-lg-6 shadow-lg m-5 py-5 bg-transparent border">
           <div className="p-5">
             <h1>Sign In</h1>
             <p>
@@ -43,10 +44,13 @@ const Login = ({ handleSubmit }) => {
                 label="Password"
                 className="form-control form-control-lg"
               />
-              <div className="d-flex justify-content-center">
-                <button type="submit" className="btn btn-dark px-5">
+              <div className="d-flex justify-content-center ">
+                <CustomButton
+                  type="submit"
+                  className="btn btn-success px-5 my-4"
+                >
                   Login
-                </button>
+                </CustomButton>
               </div>
             </form>
           </div>

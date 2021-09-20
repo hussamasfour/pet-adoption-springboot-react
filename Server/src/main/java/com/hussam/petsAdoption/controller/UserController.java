@@ -16,10 +16,18 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserService userService;
+
     @PostMapping("/userdetails")
     public ResponseEntity<?> updateUserDetails(@RequestBody UserDetails userDetails, @CurrentUser UserDetailsImp currentUser){
         User user = userService.addUserDetails(userDetails, currentUser);
 
         return new ResponseEntity<>( user, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/profile")
+    public ResponseEntity<?> getUserProfile(@CurrentUser UserDetailsImp currentUser){
+        User user = userService.getUserProfile(currentUser);
+
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

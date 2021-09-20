@@ -14,4 +14,6 @@ public interface UserService {
     public User getUserByUsername(String username);
 
     User addUserDetails(UserDetails userDetails, UserDetailsImp currentUser);
+
+    User getUserProfile(UserDetailsImp currentUser);
 }
