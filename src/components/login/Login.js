@@ -7,15 +7,12 @@ import CustomButton from "../custom-button/custom-button";
 import InputField from "../inputField/InputField";
 const Login = ({ handleSubmit }) => {
   const error = useSelector((state) => state.user.errorMessage);
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const history = useHistory();
   const dispatch = useDispatch();
   const onSubmit = (formValues) => {
     dispatch(fetchUser(formValues, history));
   };
-  if (isLoggedIn) {
-    return <Redirect to="/" />;
-  }
+
   return (
     <div className="container">
       <div className="d-flex justify-content-center align-item-center h-100 text-white">

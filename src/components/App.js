@@ -10,6 +10,8 @@ import Login from "./login/Login";
 import SearchResult from "./searchResult/SearchResult";
 import PetDetails from "./pet-details/PetDetails";
 import Reservation from "../pages/reservation/Reservation";
+import PrivateRoute from "./routes/PrivateRoute";
+import PublicRoute from "./routes/PublicRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,12 +22,27 @@ function App() {
     <div>
       <Navigation />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/explore" exact component={Explore} />
-        <Route path="/search" exact component={SearchResult} />
-        <Route path="/pet/:id/details" exact component={PetDetails} />
-        <Route path="/reserve" exact component={Reservation} />
+        <PublicRoute path="/" restricted={false} component={Home} exact />
+        <PublicRoute path="/login" restricted={true} component={Login} exact />
+        <PublicRoute
+          path="/explore"
+          restricted={false}
+          component={Explore}
+          exact
+        />
+        <PublicRoute
+          path="/search"
+          restricted={false}
+          component={SearchResult}
+          exact
+        />
+        <PublicRoute
+          path="/pet/:id/details"
+          restricted={false}
+          component={PetDetails}
+          exact
+        />
+        <PrivateRoute path="/reserve" exact component={Reservation} />
       </Switch>
     </div>
   );

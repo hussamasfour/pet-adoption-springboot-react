@@ -15,7 +15,7 @@ const PetDetails = () => {
   }, [params.id, dispatch]);
 
   if (!pet) {
-    return <div>ehe</div>;
+    return <div>There is no pet with selected Id</div>;
   }
   return (
     <div className="container">
